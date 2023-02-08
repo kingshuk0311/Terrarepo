@@ -10,18 +10,18 @@ resource "aws_instance" "one" {
   vpc_security_group_ids = [aws_security_group.three.id]
   availability_zone      = "ap-south-1a"
   user_data              = <<EOF
-
 #!/bin/bash
 sudo -i
 yum install httpd -y
 systemctl start httpd
 chkconfig httpd on
-echo "hi this is terraform projectr created on ap -south 1 server -1" > /var/www/html/index.html
+echo "hai all this is my swiggy application created by terraform infrastructurte by raham sir server-1" > /var/www/html/index.html
 EOF
-  tags {
-    Name = "swiggy-1"
+  tags = {
+    Name = "swiggy-01"
   }
 }
+
 resource "aws_instance" "two" {
   ami                    = "ami-01a4f99c4ac11b03c"
   instance_type          = "t2.medium"
@@ -29,16 +29,15 @@ resource "aws_instance" "two" {
   vpc_security_group_ids = [aws_security_group.three.id]
   availability_zone      = "ap-south-1b"
   user_data              = <<EOF
-
 #!/bin/bash
 sudo -i
 yum install httpd -y
 systemctl start httpd
 chkconfig httpd on
-echo "hi this is terraform projectr created on ap -south 1b server -2" > /var/www/html/index.html
+echo "hai all this is my swiggy application created by terraform infrastructurte by raham sir server-2" > /var/www/html/index.html
 EOF
-  tags {
-    Name = "swiggy-2"
+  tags = {
+    Name = "swiggy-02"
   }
 }
 
